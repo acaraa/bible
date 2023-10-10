@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프롬프트 생성기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f0f0f0; /* 배경색 추가 */
+        }
+        label {
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            padding: 5px;
+        }
+        /* 이미지 박스 스타일 추가 */
+        #Image_Box {
+            border: 2px solid #007BFF;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+        }
+        /* 이미지 스타일 추가 */
+        #Generated_Image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 50%; margin: 0 auto;">
+        <!-- 스타일 선택 (영어와 한글) -->
+        <label for="Style">스타일:</label>
+<select id="Style">
+            <option value="Modern Flat">Modern Flat / 현대적 평면</option>
+            <option value="Impressionistic">Impressionistic / 인상파</option>
+            <option value="Digital 3D">Digital 3D / 디지털 3D</option>
+            <option value="Collage">Collage / 콜라주</option>
+            <option value="Minimalism">Minimalism / 미니멀리즘</option>
+            <option value="Naive art">Naive art / 순진주의</option>
+            <option value="Cut Paper Art or Silhouettes">Cut Paper Art or Silhouettes / 종이 컷아웃 아트 또는 실루엣</option>
+            <option value="Stippling or Pointillism">Stippling or Pointillism / 스티플링 또는 포인틸리즘</option>
+            <option value="Folk Art Inspired">Folk Art Inspired / 민속 예술 영감</option>
+            <option value="Pop Art Inspired">Pop Art Inspired / 팝 아트 영감</option>
+            <option value="children's book illustration">children's book illustration / 어린이 도서 일러스트</option>
+<option value="none">none/ 선택안함</option>
+        </select>
+        
+        <!-- Bible Theme 선택 (영어와 한글) -->
+        <label for="Bible_Theme">Bible Theme / 성경 테마:</label>
+        <select id="Bible_Theme">
+            <option value="The appearance of the Biblical figure">The appearance of the Biblical figure / 성경 인물의 모습</option>
+            <option value="The portrait of the Biblical figure">The portrait of the Biblical figure / 성경 인물의 초상</option>
+            <option value="Christianity">Christianity / 기독교</option>
+            <option value="bible illustrations">bible illustrations / 성경 일러스트</option>
+            <option value="bible characters">bible characters / 성경 인물</option>
+            <option value="Biblical drama">Biblical drama / 성경 연극</option>
+            <option value="Children's Bible stories">Children's Bible stories / 어린이 성경 이야기</option>
+            <option value="Bible theme">Bible theme / 성경 테마</option>
+            <option value="ancient middle eastern man from the Bible">ancient middle eastern man from the Bible / 성경에서 온 고대 중동 남자</option>
+            <option value="ancient middle eastern woman from the Bible">ancient middle eastern woman from the Bible / 성경에서 온 고대 중동 여자</option>
+            <option value="ancient middle eastern girl from the Bible">ancient middle eastern girl from the Bible / 성경에서 온 고대 중동 소녀</option>
+            <option value="ancient middle eastern boy from the Bible">ancient middle eastern boy from the Bible / 성경에서 온 고대 중동 소년</option>
+<option value="none">none/ 선택안함</option>
+        </select>
+        
+        <!-- Artist 1 선택 (영어와 한글) -->
+        <label for="Artist_1">Artist 1 / 작가 1:</label>
+        <select id="Artist_1">
+            <option value="Mem Fox">Mem Fox / 메멘 폭스</option>
+            <option value="Sandra Boynton">Sandra Boynton / 샌드라 보인턴</option>
+            <option value="Laura Numeroff">Laura Numeroff / 로라 누메로프</option>
+            <option value="Jon Klassen">Jon Klassen / 존 클라센</option>
+            <option value="Richard Scarry">Richard Scarry / 리처드 스캐리</option>
+            <option value="P.D. Eastman">P.D. Eastman / P.D. 이스트맨</option>
+            <option value="Mo Willems">Mo Willems / 모 윌렘스</option>
+            <option value="Peter Reynolds">Peter Reynolds / 피터 레이놀즈</option>
+            <option value="Quentin Blakee">Quentin Blakee / 콴틴 블레이크</option>
+            <option value="Robert Munsch">Robert Munsch / 로버트 문시</option>
+            <option value="Shel Silverstein">Shel Silverstein / 쉘 실버스타인</option>
+            <option value="Roger Hargreaves">Roger Hargreaves / 로저 하그리브스</option>
+            <option value="Ludwig Bemelmans">Ludwig Bemelmans / 루드비히 베멜만스</option>
+            <option value="Margaret Wise Brown">Margaret Wise Brown / 마거릿 와이즈 브라운</option>
+            <option value="ayako rokkaku">ayako rokkaku / 아야코 로까쿠</option>
+            <option value="william hogarth">william hogarth / 윌리엄 호가스</option>
+            <option value="none">none/ 선택안함</option>
+        </select>
+        
+        <!-- Artist 2 선택 (영어와 한글) -->
+        <label for="Artist_2">Artist 2 / 작가 2:</label>
+        <select id="Artist_2">
+            <option value="Beatrix Potter">Beatrix Potter / 베아트릭스 포터</option>
+            <option value="Arnold Lobel">Arnold Lobel / 아놀드 로벨</option>
+            <option value="Tasha Tudor">Tasha Tudor / 타샤 튜더</option>
+            <option value="Eric Carle">Eric Carle / 에릭 칼</option>
+            <option value="Jan Brett">Jan Brett / 잰 브렛</option>
+            <option value="Tomie dePaola">Tomie dePaola / 토미 데파올라</option>
+            <option value="Ezra Jack Keats">Ezra Jack Keats / 에즈라 잭 키츠</option>
+            <option value="H.A. Rey, E.H. Shepard">H.A. Rey / H.A. 레이</option>
+<option value="E.H. Shepard">E.H. Shepard /E.H. 셰퍼드</option>
+            <option value="Clement Hurd">Clement Hurd / 클레멘트 허드</option>
+            <option value="Lois Ehlert">Lois Ehlert / 로이스 엘러트</option>
+            <option value="Audrey Wood">Audrey Wood / 오드리 우드</option>
+            <option value="Leo Lionni">Leo Lionni / 레오 리오니</option>
+            <option value="Oliver Jeffers">Oliver Jeffers / 올리버 제퍼스</option>
+            <option value="Mary Blair">Mary Blair / 메리 블레어</option>
+            <option value="Kevin Henkes">Kevin Henkes / 케빈 헨크스</option>
+            <option value="none">none/ 선택안함</option>
+        </select>
+        
+        <!-- 옵션 선택 (영어와 한글) -->
+        <label for="Options">Options / 옵션:</label>
+        <select id="Options">
+            <option value="Color Grading">Color Grading / 컬러 그레이딩</option>
+            <option value="Depth of Field">Depth of Field / 피사계 심도</option>
+            <option value="Cinematic">Cinematic / 시네마틱</option>
+            <option value="Backlight">Backlight / 백라이트</option>
+            <option value="Natural Lighting">Natural Lighting / 자연광</option>
+            <option value="HDR">HDR / 고다양도 범위</option>
+            <option value="Incandescent">Incandescent / 백열등</option>
+            <option value="Moody Lighting">Moody Lighting / 분위기 있는 조명</option>
+            <option value="Glowing">Glowing / 빛나는</option>
+            <option value="Ektachrome">Ektachrome / 에크타크롬</option>
+            <option value="Studio Lighting">Studio Lighting / 스튜디오 조명</option>
+            <option value="golden light">golden light / 황금빛</option>
+            <option value="soft atmospheric light">soft atmospheric light / 부드러운 분위기 있는 조명</option>
+<option value="none">none/ 선택안함</option>
+        </select>
+        
+        <!-- 분위기 선택 (영어와 한글) -->
+        <label for="Mood">Mood / 분위기:</label>
+        <select id="Mood">
+            <option value="romantic scenery">romantic scenery / 로맨틱한 풍경</option>
+            <option value="charming">charming / 매력적인</option>
+            <option value="soft shading">soft shading / 부드러운 음영</option>
+            <option value="soft gradients">soft gradients / 부드러운 그라데이션</option>
+            <option value="gray and amber">gray and amber / 회색과 황갈색</option>
+            <option value="green and crimson">green and crimson / 녹색과 진홍색</option>
+            <option value="light brown and red">light brown and red / 연갈색과 빨간색</option>
+            <option value="light white and dark orange">light white and dark orange / 연한 흰색과 짙은 주황색</option>
+            <option value="richly colored">richly colored / 풍성한 색감</option>
+            <option value="cute and dreamy">cute and dreamy / 귀여우며 몽환적인</option>
+            <option value="childlike wonder">childlike wonder / 아이 같은 호기심</option>
+            <option value="nostalgic feeling">nostalgic feeling / 향수를 불러일으키는 느낌</option>
+            <option value="innocent">innocent / 순수한</option>
+            <option value="Delicate and fine">Delicate and fine / 섬세하고 세밀한</option>
+            <option value="Inspirational">Inspirational / 영감을 주는</option>
+            <option value="Awe-inspiring">Awe-inspiring / 경외감을 주는</option>
+            <option value="Sorrowful">Sorrowful / 슬픈</option>
+            <option value="Spirit filled">Spirit filled / 영적으로 가득 찬</option>
+            <option value="God fearing">God fearing / 경외하는</option>
+<option value="none">none/ 선택안함</option>
+        </select>
+        
+        <!-- 세부 수준 선택 (영어와 한글) -->
+        <label for="Detail_Level">Detail Level / 세부 수준:</label>
+        <select id="Detail_Level">
+            <option value="white background">white background / 흰 배경</option>
+            <option value="minimalistic details">minimalistic details / 최소한의 세부 사항</option>
+            <option value="normal details">normal details / 일반적인 세부 사항</option>
+            <option value="high details">high details / 높은 세부 사항</option>
+            <option value="very high details">very high details / 매우 높은 세부 사항</option>
+            <option value="extreme level of details">extreme level of details / 극한의 세부 사항</option>
+            <option value="multiple poses and expressions">multiple poses and expressions / 다양한 포즈와 표현</option>
+            <option value="Dynamic Pose">Dynamic Pose / 다이나믹한 포즈</option>
+            <option value="beautiful watercolor like backgrounds">beautiful watercolor like backgrounds / 아름다운 수채화 같은 배경</option>
+            <option value="playful poses">playful poses / 재미있는 포즈</option>
+<option value="none">none/ 선택안함</option>
+        </select>
+        
+        <!-- 출력 스타일 선택 (영어와 한글) -->
+        <label for="Output_Style">Output Style / 출력 스타일:</label>
+        <select id="Output_Style">
+            <option value="pen drawing">pen drawing / 펜 드로잉</option>
+            <option value="oil painting">oil painting / 오일 페인팅</option>
+            <option value="water colour painting">water colour painting / 수채화</option>
+            <option value="Vector illustration">Vector illustration / 벡터 일러스트</option>
+            <option value="3d render">3d render / 3D 렌더링</option>
+            <option value="sculpture">sculpture / 조각</option>
+            <option value="cartoon">cartoon / 만화</option>
+            <option value="anime">anime / 애니메이션</option>
+            <option value="line art">line art / 선 그림</option>
+            <option value="pixel art">pixel art / 픽셀 아트</option>
+            <option value="graffiti">graffiti / 그래피티</option>
+            <option value="sketch">sketch / 스케치</option>
+            <option value="coloring page">coloring page / 컬러링 페이지</option>
+            <option value="childlike illustrations">childlike illustrations / 아이 같은 일러스트</option>
+            <option value="hand-drawn">hand-drawn / 손 그림</option>
+            <option value="pointillist: tiny dots">pointillist: tiny dots / 포인틸리즘: 작은 점들</option>
+<option value="none">none/ 선택안함</option>
+        </select>
+
+<!-- 주제 입력 영역 -->
+<label for="Subject">주제:</label>
+<input type="text" id="Subject" placeholder="주제를 입력하세요">
+
+ <!-- 생성 버튼 및 출력 영역 -->
+<button onclick="generatePrompt()">프롬프트 생성</button>
+<div id="Prompt_Box" style="display: none;">
+    <h2>생성된 프롬프트:</h2>
+    <textarea id="Generated_Prompt" readonly></textarea>
+    <button onclick="copyPrompt()">복사</button>
+</div>
+
+   <!-- JavaScript 코드 -->
+    <script>
+        // 프롬프트 생성 함수
+
+function generatePrompt() {
+    const getEnglishPart = (elementId) => {
+        // 선택된 항목들 중에서 영어 부분만 추출하여 배열로 반환
+        return Array.from(document.getElementById(elementId).selectedOptions, option => option.value !== "none" ? option.value.split(" / ")[0] : null).filter(Boolean).join(', ');
+    };
+
+    const selectedStyle = getEnglishPart("Style");
+    const selectedTheme = getEnglishPart("Bible_Theme");
+    const subject = document.getElementById("Subject").value;
+    const selectedArtists1 = getEnglishPart("Artist_1");
+    const selectedArtists2 = getEnglishPart("Artist_2");
+    const selectedOptions = getEnglishPart("Options");
+    const selectedMood = getEnglishPart("Mood");
+    const selectedDetailLevel = getEnglishPart("Detail_Level");
+    const selectedOutputStyle = getEnglishPart("Output_Style");
+
+    const elements = [selectedStyle, selectedTheme, subject, selectedArtists1, selectedArtists2, selectedOptions, selectedMood, selectedDetailLevel, selectedOutputStyle];
+    const generatedPrompt = elements.filter(el => el).join(', ');
+
+    document.getElementById("Generated_Prompt").textContent = generatedPrompt;
+    document.getElementById("Prompt_Box").style.display = "block";
+}
+
+
+
+function copyPrompt() {
+    const textarea = document.getElementById("Generated_Prompt");
+    textarea.select();
+    document.execCommand('copy');
+    alert("프롬프트가 복사되었습니다.");
+}
+
+
+    </script>
+</body>
+</html>
+               
