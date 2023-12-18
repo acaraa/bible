@@ -298,17 +298,18 @@ function generatePrompt() {
     };
 
     const selectedStyle = getEnglishPart("Style");
-    const selectedTheme = getEnglishPart("Bible_Theme");
+    const selectedBible Theme = getEnglishPart("Bible_Theme");
     const subject = document.getElementById("Subject").value;
-    const selectedArtists1 = getEnglishPart("Artist_1");
-    const selectedArtists2 = getEnglishPart("Artist_2");
+    const selectedArtist 1 = getEnglishPart("Artist_1");
+    const selectedArtist 2 = getEnglishPart("Artist_2");
     const selectedOptions = getEnglishPart("Options");
     const selectedMood = getEnglishPart("Mood");
-    const selectedDetailLevel = getEnglishPart("Detail_Level");
+    const selectedDetail Level = getEnglishPart("Detail_Level");
     const selectedcolor Style = getEnglishPart("color_Style");
 
-    const elements = [selectedStyle, selectedTheme, subject, selectedArtists1, selectedArtists2, selectedOptions, selectedMood, selectedDetailLevel, selectedcolor Style];
+    const elements = [selectedStyle, selectedBible Theme, subject, selectedArtists1, selectedArtists2, selectedOptions, selectedMood, selectedDetail Level, selectedcolor Style];
     const generatedPrompt = elements.filter(el => el).join(', ');
+
 
     document.getElementById("Generated_Prompt").textContent = generatedPrompt;
     document.getElementById("Prompt_Box").style.display = "block";
